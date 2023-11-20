@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Result</title>
+</head>
+<body>
+    <h1>Predicted class: {{ predicted_class }}</h1>
+    <p>Confidence: {{ confidence }}%</p>
+
+    <h2>List of Images:</h2>
+    <ul>
+        {% for image_file in image_files %}
+            <li><img src="{{ url_for('static', filename= 'uploads/' ~ predicted_class ~ '/' ~ image_file) }}" alt="Uploaded Image"></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
