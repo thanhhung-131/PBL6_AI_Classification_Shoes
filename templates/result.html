@@ -1,17 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Result</title>
 </head>
 <body>
-    <h1>Predicted class: {{ predicted_class }}</h1>
-    <p>Confidence: {{ confidence }}%</p>
+    <h1>Predicted Class: {{ predicted_class }}%</h1>
+    <p>Confidence: {{ confidence }}</p>
 
-    <h2>List of Images:</h2>
-    <ul>
-        {% for image_file in image_files %}
-            <li><img src="{{ url_for('static', filename= 'uploads/' ~ predicted_class ~ '/' ~ image_file) }}" alt="Uploaded Image"></li>
-        {% endfor %}
-    </ul>
+    {% for shoe in shoe_info %}
+        <div>
+            <h2>Shoe Information</h2>
+            <p>Shoe ID: {{ shoe.shoe_id }}</p>
+            <p>Shoe Name: {{ shoe.shoe_name }}</p>
+            <p>Color: {{ shoe.color }}</p>
+            <p>Size: {{ shoe.size }}</p>
+            <img src="{{ shoe.shoe_image }}" alt="Shoe Image" width="200">
+            <h3>Category Information</h3>
+            <p>Category Name: {{ shoe.category_name }}</p>
+            <img src="{{ shoe.category_image }}" alt="Category Image" width="200">
+        </div>
+    {% endfor %}
 </body>
 </html>
