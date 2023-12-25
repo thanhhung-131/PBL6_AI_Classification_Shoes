@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, jsonify
 import numpy as np
 import tensorflow as tf
 import tensorflow_hub as hub
@@ -7,8 +7,11 @@ from PIL import Image
 import os
 from keras.preprocessing import image
 import mysql.connector
+from flask_cors import CORS  # Import CORS
+import json
 
 app = Flask(__name__)
+CORS(app)  # Enable CORS for all routes
 app.config['UPLOAD_FOLDER'] = 'uploads'
 
 # Kết nối đến cơ sở dữ liệu MySQL trong XAMPP
@@ -35,12 +38,12 @@ def index():
 @app.route('/upload', methods=['POST'])
 def upload_image():
     if 'image' not in request.files:
-        return "No file part"
+        return jsonify({"error": "No file part"})
 
     file = request.files['image']
 
     if file.filename == '':
-        return "No selected file"
+        return jsonify({"error": "No selected file"})
 
     if file:
         img = Image.open(BytesIO(file.read()))
@@ -68,25 +71,35 @@ def upload_image():
 
         # Truy vấn cơ sở dữ liệu để lấy thông tin giày từ DB
         query = (
-            "SELECT s.id, s.name AS shoe_name, s.color, s.size, i.image AS shoe_image, c.name AS category_name, c.image AS category_image FROM shoes s JOIN categories c ON s.id_category = c.id JOIN images i ON s.id = i.id_shoes WHERE c.name = '{predicted_class}';"
-        )
+            "SELECT s.id, s.name AS shoe_name, s.price, i.image AS shoe_image, c.name AS category_name, c.image AS category_image FROM shoes s JOIN categories c ON s.id_category = c.id JOIN images i ON s.id = i.id_shoes WHERE c.name = '{predicted_class}';")
+        # query = (
+        #     "SELECT s.id, s.name AS shoe_name, s.price, i.image AS shoe_image, c.name AS category_name, c.image AS category_image "
+        #     "FROM shoes s "
+        #     "JOIN categories c ON s.id_category = c.id "
+        #     "JOIN images i ON s.id = i.id_shoes "
+        #     "WHERE c.name = '{predicted_class}';"
+        # )
         cursor.execute(query.format(predicted_class=predicted_class))
         shoe_info = cursor.fetchall()
 
         shoe_list = []
         for row in shoe_info:
-            shoe_id, shoe_name, color, size, shoe_image, category_name, category_image = row
+            shoe_id, shoe_name, price, shoe_image, category_name, category_image = row
             shoe_list.append({
                 'shoe_id': shoe_id,
                 'shoe_name': shoe_name,
-                'color': color,
-                'size': size,
+                'price': price,
                 'shoe_image': shoe_image,
                 'category_name': category_name,
                 'category_image': category_image
             })
 
-        return render_template('result.html', predicted_class=predicted_class, confidence=confidence, shoe_info=shoe_list)
+        # Return the shoe_list in JSON format
+        return jsonify({
+            "predicted_class": predicted_class,
+            "confidence": confidence,
+            "shoe_list": shoe_list,
+        })
 
 
 if __name__ == '__main__':
