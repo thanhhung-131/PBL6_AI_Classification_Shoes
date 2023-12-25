@@ -3220,9 +3220,11 @@ CREATE TABLE `size_items` (
   `size` int(11) NOT NULL,
   `id_shoes` int(11) NOT NULL,
   `amount` int(11) NOT NULL,
-  `createdAt` date NOT NULL DEFAULT current_timestamp(),
-  `updatedAt` date NOT NULL DEFAULT current_timestamp()
+  `createdAt` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+  `updatedAt` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP() ON UPDATE CURRENT_TIMESTAMP(),
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 
 --
 -- Dumping data for table `size_items`
