@@ -27,9 +27,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `accounts`
 --
 
-CREATE DATABASE pbl6;
-
-CREATE TABLE `pbl6`.`accounts` (
+CREATE TABLE `accounts` (
   `id` int(11) NOT NULL,
   `email` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
@@ -43,7 +41,7 @@ CREATE TABLE `pbl6`.`accounts` (
 -- Dumping data for table `accounts`
 --
 
-INSERT INTO  `pbl6`.`accounts` (`id`, `email`, `password`, `id_role`, `forgot_password_token`, `createdAt`, `updatedAt`) VALUES
+INSERT INTO `accounts` (`id`, `email`, `password`, `id_role`, `forgot_password_token`, `createdAt`, `updatedAt`) VALUES
 (2, 'darknessclmm@gmail.com', 'cc2d80098f6cb0843e2b11315f3994c0a0fe05842a0a5e018d6b084566ee03cc', 1, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInR5cGUiOiJmb3Jnb3RQYXNzd29yZFRva2VuIiwiaWF0IjoxNjk4ODI0NzM4LCJleHAiOjE2OTg5OTc1Mzh9.pMtZYtph38yr5GJdGBSFMhZ0fFUb5mgwz3EvImB14zs', '2023-10-27 08:51:32', '2023-11-01 07:45:38'),
 (5, 'hothanhhungtran@gmail.com', 'cc2d80098f6cb0843e2b11315f3994c0a0fe05842a0a5e018d6b084566ee03cc', 2, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjUsInR5cGUiOiJmb3Jnb3RQYXNzd29yZFRva2VuIiwiaWF0IjoxNjk4ODI0NTExLCJleHAiOjE2OTg5OTczMTF9.kvCnD6GMZhhe5qVufCjY0Wri3QljsUYRwEkYF5ZiwSk', '2023-11-01 07:35:08', '2023-11-01 07:41:51'),
 (6, 'hothanhhungtran1@gmail.com', 'cc2d80098f6cb0843e2b11315f3994c0a0fe05842a0a5e018d6b084566ee03cc', 2, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjYsInR5cGUiOiJmb3Jnb3RQYXNzd29yZFRva2VuIiwiaWF0IjoxNjk4ODI0Mzk3LCJleHAiOjE2OTg5OTcxOTd9.L37kBCUkfexxYwHE1IB9GufnyrJi_lTZW_6hSIH4JvM', '2023-11-01 07:36:30', '2023-11-01 07:39:57'),
@@ -61,7 +59,7 @@ INSERT INTO  `pbl6`.`accounts` (`id`, `email`, `password`, `id_role`, `forgot_pa
 -- Table structure for table `addressinfors`
 --
 
-CREATE TABLE `pbl6`.`addressinfors` (
+CREATE TABLE `addressinfors` (
   `id` int(11) NOT NULL,
   `id_account` int(11) NOT NULL,
   `address` varchar(255) DEFAULT NULL,
@@ -74,7 +72,7 @@ CREATE TABLE `pbl6`.`addressinfors` (
 -- Dumping data for table `addressinfors`
 --
 
-INSERT INTO  `pbl6`.`addressinfors` (`id`, `id_account`, `address`, `phoneNumber`, `createdAt`, `updatedAt`) VALUES
+INSERT INTO `addressinfors` (`id`, `id_account`, `address`, `phoneNumber`, `createdAt`, `updatedAt`) VALUES
 (2, 2, '131bc tran hung dao street', '0914220243', '2023-10-27 08:53:32', '2023-11-01 01:06:07');
 
 -- --------------------------------------------------------
@@ -83,7 +81,7 @@ INSERT INTO  `pbl6`.`addressinfors` (`id`, `id_account`, `address`, `phoneNumber
 -- Table structure for table `brands`
 --
 
-CREATE TABLE `pbl6`.`brands` (
+CREATE TABLE `brands` (
   `id` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
   `image` varchar(255) DEFAULT NULL,
@@ -95,7 +93,7 @@ CREATE TABLE `pbl6`.`brands` (
 -- Dumping data for table `brands`
 --
 
-INSERT INTO  `pbl6`.`brands` (`id`, `name`, `image`, `createdAt`, `updatedAt`) VALUES
+INSERT INTO `brands` (`id`, `name`, `image`, `createdAt`, `updatedAt`) VALUES
 (7, 'Adidas', NULL, '2023-12-25 02:41:11', '2023-12-25 02:41:11'),
 (8, 'Tommy Hilfiger', NULL, '2023-12-25 02:41:12', '2023-12-25 02:41:12'),
 (9, 'New Balance', NULL, '2023-12-25 02:41:12', '2023-12-25 02:41:12'),
@@ -247,7 +245,7 @@ INSERT INTO  `pbl6`.`brands` (`id`, `name`, `image`, `createdAt`, `updatedAt`) V
 -- Table structure for table `carts`
 --
 
-CREATE TABLE `pbl6`.`carts` (
+CREATE TABLE `carts` (
   `id` int(11) NOT NULL,
   `id_account` int(11) NOT NULL,
   `createAt` timestamp NOT NULL DEFAULT current_timestamp(),
@@ -259,7 +257,7 @@ CREATE TABLE `pbl6`.`carts` (
 -- Dumping data for table `carts`
 --
 
-INSERT INTO  `pbl6`.`carts` (`id`, `id_account`, `createAt`, `createdAt`, `updatedAt`) VALUES
+INSERT INTO `carts` (`id`, `id_account`, `createAt`, `createdAt`, `updatedAt`) VALUES
 (1, 2, '2023-10-27 08:51:32', '2023-10-27 08:51:32', '2023-10-27 08:51:32'),
 (4, 5, '2023-11-01 07:35:08', '2023-11-01 07:35:08', '2023-11-01 07:35:08'),
 (5, 6, '2023-11-01 07:36:30', '2023-11-01 07:36:30', '2023-11-01 07:36:30'),
@@ -277,7 +275,7 @@ INSERT INTO  `pbl6`.`carts` (`id`, `id_account`, `createAt`, `createdAt`, `updat
 -- Table structure for table `cart_items`
 --
 
-CREATE TABLE `pbl6`.`cart_items` (
+CREATE TABLE `cart_items` (
   `id` int(11) NOT NULL,
   `id_size_item` int(11) NOT NULL,
   `id_cart` int(11) NOT NULL,
@@ -292,7 +290,7 @@ CREATE TABLE `pbl6`.`cart_items` (
 -- Table structure for table `categories`
 --
 
-CREATE TABLE `pbl6`.`categories` (
+CREATE TABLE `categories` (
   `id` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
   `image` varchar(255) DEFAULT NULL,
@@ -304,7 +302,7 @@ CREATE TABLE `pbl6`.`categories` (
 -- Dumping data for table `categories`
 --
 
-INSERT INTO  `pbl6`.`categories` (`id`, `name`, `image`, `createdAt`, `updatedAt`) VALUES
+INSERT INTO `categories` (`id`, `name`, `image`, `createdAt`, `updatedAt`) VALUES
 (1, 'Sneaker', NULL, '2023-10-27 09:44:53', '2023-10-27 09:44:53'),
 (2, 'Sandal', NULL, '2023-10-27 10:48:48', '2023-10-27 10:48:48'),
 (3, 'Boot', NULL, '2023-10-27 13:50:50', '2023-10-27 13:50:50'),
@@ -317,7 +315,7 @@ INSERT INTO  `pbl6`.`categories` (`id`, `name`, `image`, `createdAt`, `updatedAt
 -- Table structure for table `images`
 --
 
-CREATE TABLE `pbl6`.`images` (
+CREATE TABLE `images` (
   `id` int(11) NOT NULL,
   `image` varchar(255) DEFAULT NULL,
   `id_shoes` int(11) NOT NULL,
@@ -329,7 +327,7 @@ CREATE TABLE `pbl6`.`images` (
 -- Dumping data for table `images`
 --
 
-INSERT INTO  `pbl6`.`images` (`id`, `image`, `id_shoes`, `createdAt`, `updatedAt`) VALUES
+INSERT INTO `images` (`id`, `image`, `id_shoes`, `createdAt`, `updatedAt`) VALUES
 (22, 'https://m.media-amazon.com/images/I/61lZjtbhVsL._AC_SR920,736_.jpg', 21, '2023-12-25 02:46:53', '2023-12-25 02:46:53'),
 (23, 'https://m.media-amazon.com/images/I/71RQhCyCWuL._AC_SR920,736_.jpg', 22, '2023-12-25 02:46:53', '2023-12-25 02:46:53'),
 (24, 'https://m.media-amazon.com/images/I/71r4bMtDDhL._AC_SR920,736_.jpg', 23, '2023-12-25 02:46:53', '2023-12-25 02:46:53'),
@@ -727,7 +725,7 @@ INSERT INTO  `pbl6`.`images` (`id`, `image`, `id_shoes`, `createdAt`, `updatedAt
 (470, 'https://m.media-amazon.com/images/I/81Owt6cL6ZL._AC_SR920,736_.jpg', 469, '2023-12-25 03:42:12', '2023-12-25 03:42:12'),
 (471, 'https://m.media-amazon.com/images/I/71CzQS-fFyL._AC_SR920,736_.jpg', 470, '2023-12-25 03:42:12', '2023-12-25 03:42:12'),
 (474, 'https://m.media-amazon.com/images/I/711BOgQzK8L._AC_SR920,736_.jpg', 473, '2023-12-25 03:42:12', '2023-12-25 03:42:12');
-INSERT INTO  `pbl6`.`images` (`id`, `image`, `id_shoes`, `createdAt`, `updatedAt`) VALUES
+INSERT INTO `images` (`id`, `image`, `id_shoes`, `createdAt`, `updatedAt`) VALUES
 (475, 'https://m.media-amazon.com/images/I/61Xp33VBCML._AC_SR920,736_.jpg', 474, '2023-12-25 03:42:12', '2023-12-25 03:42:12'),
 (476, 'https://m.media-amazon.com/images/I/81Upmxhl6TL._AC_SR920,736_.jpg', 475, '2023-12-25 03:42:12', '2023-12-25 03:42:12'),
 (477, 'https://m.media-amazon.com/images/I/71ZVgvD3BaL._AC_SR920,736_.jpg', 476, '2023-12-25 03:42:12', '2023-12-25 03:42:12'),
@@ -1124,7 +1122,7 @@ INSERT INTO  `pbl6`.`images` (`id`, `image`, `id_shoes`, `createdAt`, `updatedAt
 (937, 'https://m.media-amazon.com/images/I/71YTg-wgFaL._AC_SR920,736_.jpg', 936, '2023-12-25 04:25:18', '2023-12-25 04:25:18'),
 (938, 'https://m.media-amazon.com/images/I/61SDwkURnNS._AC_SR920,736_.jpg', 937, '2023-12-25 04:25:18', '2023-12-25 04:25:18'),
 (939, 'https://m.media-amazon.com/images/I/71Se5f5FuaL._AC_SR920,736_.jpg', 938, '2023-12-25 04:25:18', '2023-12-25 04:25:18');
-INSERT INTO  `pbl6`.`images` (`id`, `image`, `id_shoes`, `createdAt`, `updatedAt`) VALUES
+INSERT INTO `images` (`id`, `image`, `id_shoes`, `createdAt`, `updatedAt`) VALUES
 (940, 'https://m.media-amazon.com/images/I/71ETsFxhhCL._AC_SR920,736_.jpg', 939, '2023-12-25 04:25:18', '2023-12-25 04:25:18'),
 (941, 'https://m.media-amazon.com/images/I/81gw24wK8hL._AC_SR920,736_.jpg', 940, '2023-12-25 04:25:18', '2023-12-25 04:25:18'),
 (942, 'https://m.media-amazon.com/images/I/71GlQrn+c1L._AC_SR920,736_.jpg', 941, '2023-12-25 04:25:18', '2023-12-25 04:25:18'),
@@ -1515,7 +1513,7 @@ INSERT INTO  `pbl6`.`images` (`id`, `image`, `id_shoes`, `createdAt`, `updatedAt
 (1327, 'https://m.media-amazon.com/images/I/61ukzJlPnEL._AC_SR920,736_.jpg', 1326, '2023-12-25 04:43:18', '2023-12-25 04:43:18'),
 (1328, 'https://m.media-amazon.com/images/I/71OW2oMHAGL._AC_SR920,736_.jpg', 1327, '2023-12-25 04:43:18', '2023-12-25 04:43:18'),
 (1329, 'https://m.media-amazon.com/images/I/71FBVS4-jsL._AC_SR920,736_.jpg', 1328, '2023-12-25 04:43:18', '2023-12-25 04:43:18');
-INSERT INTO  `pbl6`.`images` (`id`, `image`, `id_shoes`, `createdAt`, `updatedAt`) VALUES
+INSERT INTO `images` (`id`, `image`, `id_shoes`, `createdAt`, `updatedAt`) VALUES
 (1330, 'https://m.media-amazon.com/images/I/71ZvQ2blA-L._AC_SR920,736_.jpg', 1329, '2023-12-25 04:43:18', '2023-12-25 04:43:18'),
 (1331, 'https://m.media-amazon.com/images/I/71kVkheTr2L._AC_SR920,736_.jpg', 1330, '2023-12-25 04:43:18', '2023-12-25 04:43:18'),
 (1332, 'https://m.media-amazon.com/images/I/61d7f43EfRL._AC_SR920,736_.jpg', 1331, '2023-12-25 04:43:18', '2023-12-25 04:43:18'),
@@ -1618,7 +1616,7 @@ INSERT INTO  `pbl6`.`images` (`id`, `image`, `id_shoes`, `createdAt`, `updatedAt
 -- Table structure for table `inforusers`
 --
 
-CREATE TABLE `pbl6`.`inforusers` (
+CREATE TABLE `inforusers` (
   `id` int(11) NOT NULL,
   `id_account` int(11) NOT NULL,
   `lastname` varchar(255) DEFAULT NULL,
@@ -1633,7 +1631,7 @@ CREATE TABLE `pbl6`.`inforusers` (
 -- Dumping data for table `inforusers`
 --
 
-INSERT INTO  `pbl6`.`inforusers` (`id`, `id_account`, `lastname`, `firstname`, `phoneNumber`, `avatar`, `createdAt`, `updatedAt`) VALUES
+INSERT INTO `inforusers` (`id`, `id_account`, `lastname`, `firstname`, `phoneNumber`, `avatar`, `createdAt`, `updatedAt`) VALUES
 (1, 2, 'Trần', 'Hào', '3111111111', 'https://pbl6-shoesshop.s3.ap-southeast-1.amazonaws.com/b114dce340224f5d6a6e60601.jpg', '2023-10-27 08:51:32', '2023-11-01 14:49:19'),
 (4, 5, 'hào thanh hưng', 'trần', '3111111111', NULL, '2023-11-01 07:35:08', '2023-11-01 07:35:08'),
 (5, 6, 'hào thanh hưng', 'trần', '3111111111', NULL, '2023-11-01 07:36:30', '2023-11-01 07:36:30'),
@@ -1651,7 +1649,7 @@ INSERT INTO  `pbl6`.`inforusers` (`id`, `id_account`, `lastname`, `firstname`, `
 -- Table structure for table `messages`
 --
 
-CREATE TABLE `pbl6`.`messages` (
+CREATE TABLE `messages` (
   `id` int(11) NOT NULL,
   `id_reciever` int(11) NOT NULL,
   `id_sender` int(11) NOT NULL,
@@ -1664,7 +1662,7 @@ CREATE TABLE `pbl6`.`messages` (
 -- Dumping data for table `messages`
 --
 
-INSERT INTO  `pbl6`.`messages` (`id`, `id_reciever`, `id_sender`, `content`, `createdAt`, `updatedAt`) VALUES
+INSERT INTO `messages` (`id`, `id_reciever`, `id_sender`, `content`, `createdAt`, `updatedAt`) VALUES
 (5, 2, 7, 'alo', '2023-11-03 16:10:33', '2023-11-03 16:10:33'),
 (6, 7, 2, 'đây hưng', '2023-11-03 16:10:39', '2023-11-03 16:10:39'),
 (7, 2, 7, 'hưng đây', '2023-11-03 16:11:58', '2023-11-03 16:11:58'),
@@ -1680,7 +1678,7 @@ INSERT INTO  `pbl6`.`messages` (`id`, `id_reciever`, `id_sender`, `content`, `cr
 -- Table structure for table `orders`
 --
 
-CREATE TABLE `pbl6`.`orders` (
+CREATE TABLE `orders` (
   `id` int(11) NOT NULL,
   `id_account` int(11) NOT NULL,
   `createAt` timestamp NOT NULL DEFAULT current_timestamp(),
@@ -1696,7 +1694,7 @@ CREATE TABLE `pbl6`.`orders` (
 -- Dumping data for table `orders`
 --
 
-INSERT INTO  `pbl6`.`orders` (`id`, `id_account`, `createAt`, `id_status`, `order_address`, `order_phoneNumber`, `totalPrice`, `createdAt`, `updatedAt`) VALUES
+INSERT INTO `orders` (`id`, `id_account`, `createAt`, `id_status`, `order_address`, `order_phoneNumber`, `totalPrice`, `createdAt`, `updatedAt`) VALUES
 (9, 2, '2023-11-19 04:00:15', 4, 'Xuan Thieu 14 street', '0962240446', 5000000, '2023-11-19 04:00:15', '2023-11-19 04:00:15'),
 (10, 2, '2023-11-19 04:03:05', 4, 'Xuan Thieu 14 street', '0962240446', 6000000, '2023-11-19 04:03:05', '2023-11-19 04:03:05'),
 (11, 2, '2023-11-19 04:13:11', 4, 'nguyễn trãi street', '09622404411', 50000000, '2023-11-19 04:13:11', '2023-11-19 04:13:11'),
@@ -1718,7 +1716,7 @@ INSERT INTO  `pbl6`.`orders` (`id`, `id_account`, `createAt`, `id_status`, `orde
 -- Table structure for table `order_items`
 --
 
-CREATE TABLE `pbl6`.`order_items` (
+CREATE TABLE `order_items` (
   `id` int(11) NOT NULL,
   `id_size_item` int(11) NOT NULL,
   `id_order` int(11) NOT NULL,
@@ -1735,7 +1733,7 @@ CREATE TABLE `pbl6`.`order_items` (
 -- Table structure for table `ratings`
 --
 
-CREATE TABLE `pbl6`.`ratings` (
+CREATE TABLE `ratings` (
   `id` int(11) NOT NULL,
   `id_shoes` int(11) NOT NULL,
   `id_account` int(11) NOT NULL,
@@ -1751,7 +1749,7 @@ CREATE TABLE `pbl6`.`ratings` (
 -- Table structure for table `refreshtokens`
 --
 
-CREATE TABLE `pbl6`.`refreshtokens` (
+CREATE TABLE `refreshtokens` (
   `id` int(11) NOT NULL,
   `refreshToken` varchar(255) DEFAULT NULL,
   `exp` varchar(255) DEFAULT NULL,
@@ -1763,7 +1761,7 @@ CREATE TABLE `pbl6`.`refreshtokens` (
 -- Dumping data for table `refreshtokens`
 --
 
-INSERT INTO  `pbl6`.`refreshtokens` (`id`, `refreshToken`, `exp`, `createdAt`, `updatedAt`) VALUES
+INSERT INTO `refreshtokens` (`id`, `refreshToken`, `exp`, `createdAt`, `updatedAt`) VALUES
 (1, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTY5ODM5NjcwMiwiZXhwIjoxNjk4NTY5NTAyfQ.1PDm1bSNTNXloXs_SVk4nZOZiTKryiYNQ_QrqCLx7m8', '1698569502', '2023-10-27 08:51:42', '2023-10-27 08:51:42'),
 (2, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTY5ODQwMzkxOCwiZXhwIjoxNjk4NTc2NzE4fQ.FjR8pDTMN8TVm0JXMDCzUgVMEJhg29bpUh9xd_VkOtI', '1698576718', '2023-10-27 10:51:58', '2023-10-27 10:51:58'),
 (3, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjIsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTY5ODQwNjQ4MSwiZXhwIjoxNjk4NTc5MjgxfQ.VmhW5ENpZt7NxCLCAKFDn1XSLR7Jofw67iFByW4E_Qw', '1698579281', '2023-10-27 11:34:41', '2023-10-27 11:34:41'),
@@ -1856,7 +1854,7 @@ INSERT INTO  `pbl6`.`refreshtokens` (`id`, `refreshToken`, `exp`, `createdAt`, `
 -- Table structure for table `roles`
 --
 
-CREATE TABLE `pbl6`.`roles` (
+CREATE TABLE `roles` (
   `id` int(11) NOT NULL,
   `roleName` varchar(255) DEFAULT NULL,
   `createdAt` timestamp NOT NULL DEFAULT current_timestamp(),
@@ -1867,7 +1865,7 @@ CREATE TABLE `pbl6`.`roles` (
 -- Dumping data for table `roles`
 --
 
-INSERT INTO  `pbl6`.`roles` (`id`, `roleName`, `createdAt`, `updatedAt`) VALUES
+INSERT INTO `roles` (`id`, `roleName`, `createdAt`, `updatedAt`) VALUES
 (1, 'admin', '2023-10-27 08:51:25', '2023-10-27 08:51:25'),
 (2, 'custommer', '2023-10-27 08:51:25', '2023-10-27 08:51:25');
 
@@ -1877,7 +1875,7 @@ INSERT INTO  `pbl6`.`roles` (`id`, `roleName`, `createdAt`, `updatedAt`) VALUES
 -- Table structure for table `sequelizemeta`
 --
 
-CREATE TABLE `pbl6`.`sequelizemeta` (
+CREATE TABLE `sequelizemeta` (
   `name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -1885,7 +1883,7 @@ CREATE TABLE `pbl6`.`sequelizemeta` (
 -- Dumping data for table `sequelizemeta`
 --
 
-INSERT INTO  `pbl6`.`sequelizemeta` (`name`) VALUES
+INSERT INTO `sequelizemeta` (`name`) VALUES
 ('acreate-role.js'),
 ('bcreate-account.js'),
 ('ccreate-brand.js'),
@@ -1909,7 +1907,7 @@ INSERT INTO  `pbl6`.`sequelizemeta` (`name`) VALUES
 -- Table structure for table `shoes`
 --
 
-CREATE TABLE `pbl6`.`shoes` (
+CREATE TABLE `shoes` (
   `id` int(11) NOT NULL,
   `id_category` int(11) NOT NULL,
   `id_brand` int(11) NOT NULL,
@@ -1926,7 +1924,7 @@ CREATE TABLE `pbl6`.`shoes` (
 -- Dumping data for table `shoes`
 --
 
-INSERT INTO  `pbl6`.`shoes` (`id`, `id_category`, `id_brand`, `name`, `price`, `import_price`, `description`, `color`, `createdAt`, `updatedAt`) VALUES
+INSERT INTO `shoes` (`id`, `id_category`, `id_brand`, `name`, `price`, `import_price`, `description`, `color`, `createdAt`, `updatedAt`) VALUES
 (21, 1, 7, 'Stan Smith Velcro Primegreen', 2475000, 1000000, 'Boasting a simple style that can\'t be replicated, The  adidas® Originals Stan Smith Velcro Primegreen  is an iconic sneaker for everyday wear.', 'White', '2023-12-25 02:46:53', '2023-12-25 02:46:53'),
 (22, 1, 7, 'Copa Pure.4 Turf', 1250000, 825000, 'Let your feet cover an extra mile by wearing adidas® Copa Pure.4 Turf sneakers.', 'Black', '2023-12-25 02:46:53', '2023-12-25 02:46:53'),
 (23, 1, 23, 'Lightspin', 1875000, 925000, 'The Fila® Lightspin Sneakers are designed for a tough performance on the roads. These come with a premium textile & synthetic upper, textile lining, and textile insole, all designed for high durability. The sneakers feature a round toe shape and lace-up c', 'Black', '2023-12-25 02:46:53', '2023-12-25 02:46:53'),
@@ -2141,7 +2139,7 @@ INSERT INTO  `pbl6`.`shoes` (`id`, `id_category`, `id_brand`, `name`, `price`, `
 (236, 1, 9, '808 - Tiago Lemos', 2725000, 2450000, 'The New Balance® Numeric 808 - Tiago Lemos by Tiago Lemos is the newest addition to the NB Numeric line. Tiago\'s second signature model for New Balance features late-90\'s styling with modern NB technology. Full-length ABZORB midsole, lace ghillies, NDuran', 'Tan', '2023-12-25 02:55:02', '2023-12-25 02:55:02'),
 (237, 1, 36, 'Solution Speed FF 2 Tennis Shoe', 3500000, 2475000, 'Stay in all day comfort and style with the ASICS® Solution Speed FF 2 Tennis Shoe.', 'Red', '2023-12-25 02:55:02', '2023-12-25 02:55:02'),
 (238, 1, 28, 'Old Skool Overt CC', 2625000, 1925000, 'Give your streetwear style an upgrade in the comfy Vans™ Old Skool Overt CC shoes.', 'Black', '2023-12-25 02:55:02', '2023-12-25 02:55:02');
-INSERT INTO  `pbl6`.`shoes` (`id`, `id_category`, `id_brand`, `name`, `price`, `import_price`, `description`, `color`, `createdAt`, `updatedAt`) VALUES
+INSERT INTO `shoes` (`id`, `id_category`, `id_brand`, `name`, `price`, `import_price`, `description`, `color`, `createdAt`, `updatedAt`) VALUES
 (239, 1, 7, 'X Speedportal Messi.4 Turf', 1475000, 1475000, 'A perfect pick for your match day, the adidas® X Speedportal Messi.4 Turf Cleats offer you exceptional comfort, lightweight performance, and enhanced flexibility.', 'White', '2023-12-25 02:55:02', '2023-12-25 02:55:02'),
 (241, 1, 55, 'Classic Leather', 2250000, 1575000, 'Celebrate all of the flavors of love in classic low-pro casual sneaker style with the Reebok Lifestyle® Classic Leather sneakers.', 'Black', '2023-12-25 02:55:03', '2023-12-25 02:55:03'),
 (242, 1, 28, 'Classic Slip-On™', 1625000, 1100000, 'The one that started it all - the tried-and-true style and laid-back profile of the Vans™ Classic Slip-On shoes.', 'Black', '2023-12-25 02:55:05', '2023-12-25 02:55:05'),
@@ -2342,7 +2340,7 @@ INSERT INTO  `pbl6`.`shoes` (`id`, `id_category`, `id_brand`, `name`, `price`, `
 (510, 1, 8, 'Balen', 1975000, 1675000, 'Designed to bring comfort and style, the Tommy Hilfiger® Balen boots are a must-have in your boot collection.', 'Brown', '2023-12-25 03:42:12', '2023-12-25 03:42:12'),
 (514, 1, 8, 'Risten', 1975000, 1475000, 'Featuring a memory foam cushioned insole for comfort, the Tommy Hilfiger® Risten Boots come with a pull-tab on the back for easy wear. The round-toe design adds to the structure and keeps your feet protected. Wear these boots to your next outdoor session ', 'Brown', '2023-12-25 03:42:12', '2023-12-25 03:42:12'),
 (515, 1, 8, 'Risten', 1975000, 1475000, 'Featuring a memory foam cushioned insole for comfort, the Tommy Hilfiger® Risten Boots come with a pull-tab on the back for easy wear. The round-toe design adds to the structure and keeps your feet protected. Wear these boots to your next outdoor session ', 'Brown', '2023-12-25 03:42:12', '2023-12-25 03:42:12');
-INSERT INTO  `pbl6`.`shoes` (`id`, `id_category`, `id_brand`, `name`, `price`, `import_price`, `description`, `color`, `createdAt`, `updatedAt`) VALUES
+INSERT INTO `shoes` (`id`, `id_category`, `id_brand`, `name`, `price`, `import_price`, `description`, `color`, `createdAt`, `updatedAt`) VALUES
 (516, 1, 11, 'XC4 Stanton 2.0 Chelsea', 4975000, 3725000, 'Sharp and polished, the Johnston & Murphy® XC4 Stanton 2.0 Chelsea boots are designed to offer exclusive XC4 waterproof performance and comfort with Smart-Degree Technology lining that provides temperature control.', 'Black', '2023-12-25 03:42:12', '2023-12-25 03:42:12'),
 (517, 1, 8, 'Rosell', 1975000, 1475000, 'Let your feet feel comfortable and stylish by wearing the Tommy Hilfiger® Rosell boots. The round-toe boots have a lace-up closure for a secure fit. The faux leather upper with textile and man-made lining and memory foam cushioned insole offers additional', 'Brown', '2023-12-25 03:42:12', '2023-12-25 03:42:12'),
 (519, 1, 8, 'Rosell', 1975000, 1475000, 'Let your feet feel comfortable and stylish by wearing the Tommy Hilfiger® Rosell boots. The round-toe boots have a lace-up closure for a secure fit. The faux leather upper with textile and man-made lining and memory foam cushioned insole offers additional', 'Brown', '2023-12-25 03:42:12', '2023-12-25 03:42:12'),
@@ -2542,7 +2540,7 @@ INSERT INTO  `pbl6`.`shoes` (`id`, `id_category`, `id_brand`, `name`, `price`, `
 (756, 3, 17, 'Grand+ Chukka', 2250000, 2100000, 'Stay on top of the fashion game by opting for the versatile Cole Haan® Grand+ Chukka that features a cushioned GRANDFØAM footbed. ', 'Tan', '2023-12-25 04:16:47', '2023-12-25 04:16:47'),
 (757, 3, 157, 'Oslo Tactical Boot', 4950000, 3450000, 'Get an exquisite style and absolute comfort wearing Polo Ralph Lauren® Oslo Tactical Boot.', 'Black', '2023-12-25 04:16:47', '2023-12-25 04:16:47'),
 (758, 3, 17, 'American Classics Plain Toe Boot Waterproof', 5000000, 4500000, 'Take every stride with comfort in mind by wearing the Cole Haan® American Classics Plain Toe Boots Waterproof.', 'Gray', '2023-12-25 04:16:47', '2023-12-25 04:16:47');
-INSERT INTO  `pbl6`.`shoes` (`id`, `id_category`, `id_brand`, `name`, `price`, `import_price`, `description`, `color`, `createdAt`, `updatedAt`) VALUES
+INSERT INTO `shoes` (`id`, `id_category`, `id_brand`, `name`, `price`, `import_price`, `description`, `color`, `createdAt`, `updatedAt`) VALUES
 (759, 3, 161, 'C3952', 7975000, 7075000, 'Steal all the limelight by wearing the stylish and comfortable Corral™ Boots C3952.', 'Tan', '2023-12-25 04:16:47', '2023-12-25 04:16:47'),
 (760, 3, 13, 'Berenger Plain Toe Chukka', 2975000, 1500000, 'Flex a sleek and elegant style wearing Rockport® Berenger Plain Toe Chukka Boots.', 'Tan', '2023-12-25 04:16:47', '2023-12-25 04:16:47'),
 (761, 3, 212, 'Elias', 4725000, 2825000, 'For all-day comfort and style, the Tundra™ Boots Elias is perfect for casual wear.', 'Brown', '2023-12-25 04:16:47', '2023-12-25 04:16:47'),
@@ -2776,7 +2774,7 @@ INSERT INTO  `pbl6`.`shoes` (`id`, `id_category`, `id_brand`, `name`, `price`, `
 (989, 2, 57, 'Nate Nubuck Slides', 3500000, 1625000, 'Vagabond Shoemakers® Nate Nubuck Slides will become your new obsession, as they offer comfort with style.', 'Black', '2023-12-25 04:29:31', '2023-12-25 04:29:31'),
 (990, 2, 162, 'Gryphon', 3250000, 2925000, 'Get a warrior\'s welcome with sleek leather style of the Dr. Martens® Gryphon gladiator-inspired sandals! ', 'Black', '2023-12-25 04:29:31', '2023-12-25 04:29:31'),
 (991, 2, 233, 'Bixby ST X Stone Brewing', 1250000, 1125000, 'Stay comfy wearing the Sanuk® Bixby ST X Stone Brewing Sandals by the poolside.', 'Brown', '2023-12-25 04:29:31', '2023-12-25 04:29:31');
-INSERT INTO  `pbl6`.`shoes` (`id`, `id_category`, `id_brand`, `name`, `price`, `import_price`, `description`, `color`, `createdAt`, `updatedAt`) VALUES
+INSERT INTO `shoes` (`id`, `id_category`, `id_brand`, `name`, `price`, `import_price`, `description`, `color`, `createdAt`, `updatedAt`) VALUES
 (992, 2, 40, 'Phoenix Basic Knit', 975000, 575000, 'Stroll comfortably around the neighborhood in these simple Hey Dude® Phoenix Basic Knit flat slides.', 'White', '2023-12-25 04:29:31', '2023-12-25 04:29:31'),
 (993, 2, 58, 'Wesley Bay', 2000000, 1275000, 'Stroll around in the street with an easygoing look wearing the  Clarks® Wesley Bay sandals. ', 'Black', '2023-12-25 04:29:31', '2023-12-25 04:29:31'),
 (994, 2, 253, 'Pikolinos - Oropesa M3R', 4250000, 1700000, 'Be prepared for anything with the functional Pikolinos® Oropesa M3R sandals. ', 'Black', '2023-12-25 04:29:31', '2023-12-25 04:29:31'),
@@ -2995,7 +2993,7 @@ INSERT INTO  `pbl6`.`shoes` (`id`, `id_category`, `id_brand`, `name`, `price`, `
 (1207, 4, 220, 'Sebastian', 7375000, 5375000, 'Now available in a range of widths and sizes for exceptional fit and the utmost in lasting comfort.', 'Black', '2023-12-25 04:39:16', '2023-12-25 04:39:16'),
 (1208, 4, 155, 'Penny Loafer', 4000000, 1700000, 'Go for sporty leisure wear with these functional and stylish SWIMS™ Penny Loafers.', 'Orange', '2023-12-25 04:39:16', '2023-12-25 04:39:16'),
 (1209, 4, 271, 'Alpargata Forward Espadrille', 1475000, 1125000, 'For information on how TOMS contributes to the community, please visit the About page', 'Blue', '2023-12-25 04:39:16', '2023-12-25 04:39:16');
-INSERT INTO  `pbl6`.`shoes` (`id`, `id_category`, `id_brand`, `name`, `price`, `import_price`, `description`, `color`, `createdAt`, `updatedAt`) VALUES
+INSERT INTO `shoes` (`id`, `id_category`, `id_brand`, `name`, `price`, `import_price`, `description`, `color`, `createdAt`, `updatedAt`) VALUES
 (1210, 4, 162, 'Adrian YS', 3500000, 2925000, 'Featuring grooved edges and stitch detailing, Dr. Martens® Adrian YS Loafers are comfortable to wear and to style your formal and casual wear look.', 'White', '2023-12-25 04:39:16', '2023-12-25 04:39:16'),
 (1211, 4, 60, 'Raylenn', 2225000, 2000000, 'Exude a sleek and sophisticated vibe with every step you take wearing Steve Madden® Raylenn Loafers.', 'Black', '2023-12-25 04:39:16', '2023-12-25 04:39:16'),
 (1212, 4, 42, 'Martin', 3375000, 3025000, 'Level up your formal attire by slipping into the  Calvin Klein® Martin loafers. ', 'Brown', '2023-12-25 04:39:16', '2023-12-25 04:39:16'),
@@ -3217,7 +3215,7 @@ INSERT INTO  `pbl6`.`shoes` (`id`, `id_category`, `id_brand`, `name`, `price`, `
 -- Table structure for table `size_items`
 --
 
-CREATE TABLE `pbl6`.`size_items` (
+CREATE TABLE `size_items` (
   `id` int(11) NOT NULL,
   `size` int(11) NOT NULL,
   `id_shoes` int(11) NOT NULL,
@@ -3230,7 +3228,7 @@ CREATE TABLE `pbl6`.`size_items` (
 -- Dumping data for table `size_items`
 --
 
-INSERT INTO  `pbl6`.`size_items` (`id`, `size`, `id_shoes`, `amount`, `createdAt`, `updatedAt`) VALUES
+INSERT INTO `size_items` (`id`, `size`, `id_shoes`, `amount`, `createdAt`, `updatedAt`) VALUES
 (28, 35, 21, 50, '2023-12-25', '2023-12-25'),
 (29, 40, 21, 50, '2023-12-25', '2023-12-25'),
 (30, 41, 21, 50, '2023-12-25', '2023-12-25'),
@@ -4326,7 +4324,7 @@ INSERT INTO  `pbl6`.`size_items` (`id`, `size`, `id_shoes`, `amount`, `createdAt
 (1121, 44, 191, 50, '2023-12-25', '2023-12-25'),
 (1122, 36, 192, 50, '2023-12-25', '2023-12-25'),
 (1123, 37, 192, 50, '2023-12-25', '2023-12-25');
-INSERT INTO  `pbl6`.`size_items` (`id`, `size`, `id_shoes`, `amount`, `createdAt`, `updatedAt`) VALUES
+INSERT INTO `size_items` (`id`, `size`, `id_shoes`, `amount`, `createdAt`, `updatedAt`) VALUES
 (1124, 38, 192, 50, '2023-12-25', '2023-12-25'),
 (1125, 39, 192, 50, '2023-12-25', '2023-12-25'),
 (1126, 40, 192, 50, '2023-12-25', '2023-12-25'),
@@ -5388,7 +5386,7 @@ INSERT INTO  `pbl6`.`size_items` (`id`, `size`, `id_shoes`, `amount`, `createdAt
 (2409, 40, 428, 50, '2023-12-25', '2023-12-25'),
 (2410, 41, 428, 50, '2023-12-25', '2023-12-25'),
 (2411, 42, 428, 50, '2023-12-25', '2023-12-25');
-INSERT INTO  `pbl6`.`size_items` (`id`, `size`, `id_shoes`, `amount`, `createdAt`, `updatedAt`) VALUES
+INSERT INTO `size_items` (`id`, `size`, `id_shoes`, `amount`, `createdAt`, `updatedAt`) VALUES
 (2412, 39, 429, 50, '2023-12-25', '2023-12-25'),
 (2413, 40, 429, 50, '2023-12-25', '2023-12-25'),
 (2414, 41, 429, 50, '2023-12-25', '2023-12-25'),
@@ -6450,7 +6448,7 @@ INSERT INTO  `pbl6`.`size_items` (`id`, `size`, `id_shoes`, `amount`, `createdAt
 (3856, 41, 702, 50, '2023-12-25', '2023-12-25'),
 (3857, 42, 702, 50, '2023-12-25', '2023-12-25'),
 (3858, 39, 703, 50, '2023-12-25', '2023-12-25');
-INSERT INTO  `pbl6`.`size_items` (`id`, `size`, `id_shoes`, `amount`, `createdAt`, `updatedAt`) VALUES
+INSERT INTO `size_items` (`id`, `size`, `id_shoes`, `amount`, `createdAt`, `updatedAt`) VALUES
 (3859, 40, 703, 50, '2023-12-25', '2023-12-25'),
 (3860, 41, 703, 50, '2023-12-25', '2023-12-25'),
 (3861, 42, 703, 50, '2023-12-25', '2023-12-25'),
@@ -7512,7 +7510,7 @@ INSERT INTO  `pbl6`.`size_items` (`id`, `size`, `id_shoes`, `amount`, `createdAt
 (4917, 37, 933, 50, '2023-12-25', '2023-12-25'),
 (4918, 38, 933, 50, '2023-12-25', '2023-12-25'),
 (4919, 39, 933, 50, '2023-12-25', '2023-12-25');
-INSERT INTO  `pbl6`.`size_items` (`id`, `size`, `id_shoes`, `amount`, `createdAt`, `updatedAt`) VALUES
+INSERT INTO `size_items` (`id`, `size`, `id_shoes`, `amount`, `createdAt`, `updatedAt`) VALUES
 (4920, 38, 934, 50, '2023-12-25', '2023-12-25'),
 (4921, 39, 934, 50, '2023-12-25', '2023-12-25'),
 (4922, 41, 934, 50, '2023-12-25', '2023-12-25'),
@@ -8557,7 +8555,7 @@ INSERT INTO  `pbl6`.`size_items` (`id`, `size`, `id_shoes`, `amount`, `createdAt
 (5961, 41, 1173, 50, '2023-12-25', '2023-12-25'),
 (5962, 44, 1173, 50, '2023-12-25', '2023-12-25'),
 (5963, 38, 1174, 50, '2023-12-25', '2023-12-25');
-INSERT INTO  `pbl6`.`size_items` (`id`, `size`, `id_shoes`, `amount`, `createdAt`, `updatedAt`) VALUES
+INSERT INTO `size_items` (`id`, `size`, `id_shoes`, `amount`, `createdAt`, `updatedAt`) VALUES
 (5964, 39, 1174, 50, '2023-12-25', '2023-12-25'),
 (5965, 40, 1174, 50, '2023-12-25', '2023-12-25'),
 (5966, 41, 1174, 50, '2023-12-25', '2023-12-25'),
@@ -9597,7 +9595,7 @@ INSERT INTO  `pbl6`.`size_items` (`id`, `size`, `id_shoes`, `amount`, `createdAt
 (7000, 45, 1400, 50, '2023-12-25', '2023-12-25'),
 (7001, 46, 1400, 50, '2023-12-25', '2023-12-25'),
 (7002, 41, 1401, 50, '2023-12-25', '2023-12-25');
-INSERT INTO  `pbl6`.`size_items` (`id`, `size`, `id_shoes`, `amount`, `createdAt`, `updatedAt`) VALUES
+INSERT INTO `size_items` (`id`, `size`, `id_shoes`, `amount`, `createdAt`, `updatedAt`) VALUES
 (7003, 42, 1401, 50, '2023-12-25', '2023-12-25'),
 (7004, 43, 1401, 50, '2023-12-25', '2023-12-25'),
 (7005, 38, 1402, 50, '2023-12-25', '2023-12-25'),
@@ -9735,7 +9733,7 @@ INSERT INTO  `pbl6`.`size_items` (`id`, `size`, `id_shoes`, `amount`, `createdAt
 -- Table structure for table `statuses`
 --
 
-CREATE TABLE `pbl6`.`statuses` (
+CREATE TABLE `statuses` (
   `id` int(11) NOT NULL,
   `status` varchar(255) DEFAULT NULL,
   `createdAt` timestamp NOT NULL DEFAULT current_timestamp(),
@@ -9746,7 +9744,7 @@ CREATE TABLE `pbl6`.`statuses` (
 -- Dumping data for table `statuses`
 --
 
-INSERT INTO  `pbl6`.`statuses` (`id`, `status`, `createdAt`, `updatedAt`) VALUES
+INSERT INTO `statuses` (`id`, `status`, `createdAt`, `updatedAt`) VALUES
 (1, 'đang chờ', '2023-10-27 09:02:47', '2023-10-27 09:02:47'),
 (2, 'đang chuẩn bị', '2023-10-27 09:03:17', '2023-10-27 09:03:17'),
 (3, 'đang giao', '2023-10-27 09:03:17', '2023-10-27 09:03:17'),
