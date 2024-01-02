@@ -9,7 +9,7 @@ import mysql.connector
 from fastapi.middleware.cors import CORSMiddleware
 import json
 
-app = FastAPI(host="0.0.0.0")
+app = FastAPI(host="http://44.212.13.237/")
 
 # Enable CORS for all routes
 origins = [
