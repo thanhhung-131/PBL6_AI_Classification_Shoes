@@ -150,12 +150,12 @@ def upload_image():
         #             'category_image': category_image
         #         })
 
-            # Return the shoe_list in JSON format
-            return jsonify({
-                "predicted_class": predicted_class,
-                "confidence": confidence,
-                "shoe_list": shoe_list,
-            })
+        # Return the shoe_list in JSON format
+        return jsonify({
+            "predicted_class": predicted_class,
+            "confidence": confidence,
+            "shoe_list": shoe_list,
+        })
 
 if __name__ == '__main__':
     app.run(debug=True)
