@@ -83,72 +83,72 @@ def upload_image():
             category_products = [product for product in products if product["Category"]["name"] == predicted_class]
             top_10_products = category_products[:10] if len(category_products) >= 10 else category_products
 
-            # If there are fewer than 10 products, get additional products from the database
-            if len(top_10_products) < 10:
-                remaining_products = 10 - len(top_10_products)
+        #     # If there are fewer than 10 products, get additional products from the database
+        #     if len(top_10_products) < 10:
+        #         remaining_products = 10 - len(top_10_products)
                 
-                # Truy vấn cơ sở dữ liệu để lấy thông tin giày từ DB
-                query = (
-                    f"SELECT s.id, s.name AS shoe_name, s.price, i.image AS shoe_image, c.name AS category_name, c.image AS category_image FROM shoes s JOIN categories c ON s.id_category = c.id JOIN images i ON s.id = i.id_shoes WHERE c.name = '{predicted_class}' LIMIT {remaining_products};")
+        #         # Truy vấn cơ sở dữ liệu để lấy thông tin giày từ DB
+        #         query = (
+        #             f"SELECT s.id, s.name AS shoe_name, s.price, i.image AS shoe_image, c.name AS category_name, c.image AS category_image FROM shoes s JOIN categories c ON s.id_category = c.id JOIN images i ON s.id = i.id_shoes WHERE c.name = '{predicted_class}' LIMIT {remaining_products};")
                 
-                cursor.execute(query)
-                additional_shoe_info = cursor.fetchall()
+        #         cursor.execute(query)
+        #         additional_shoe_info = cursor.fetchall()
 
-                for row in additional_shoe_info:
-                    shoe_id, shoe_name, price, shoe_image, category_name, category_image = row
-                    top_10_products.append({
-                        'id': shoe_id,
-                        'name': shoe_name,
-                        'totalPrice': price,
-                        'Image': shoe_image,
-                        'Category': {
-                            'name': category_name
-                        }
-                    })
+        #         for row in additional_shoe_info:
+        #             shoe_id, shoe_name, price, shoe_image, category_name, category_image = row
+        #             top_10_products.append({
+        #                 'id': shoe_id,
+        #                 'name': shoe_name,
+        #                 'totalPrice': price,
+        #                 'Image': shoe_image,
+        #                 'Category': {
+        #                     'name': category_name
+        #                 }
+        #             })
 
-            shoe_list = []
-            for product in top_10_products:
-                shoe_id = product["id"]
-                shoe_name = product["name"]
-                price = product["totalPrice"]
-                shoe_image = product["Image"]
-                category_name = product["Category"]["name"]
-                category_image = None  # Replace with the actual category image if available
+        #     shoe_list = []
+        #     for product in top_10_products:
+        #         shoe_id = product["id"]
+        #         shoe_name = product["name"]
+        #         price = product["totalPrice"]
+        #         shoe_image = product["Image"]
+        #         category_name = product["Category"]["name"]
+        #         category_image = None  # Replace with the actual category image if available
 
-                shoe_list.append({
-                    'shoe_id': shoe_id,
-                    'shoe_name': shoe_name,
-                    'price': price,
-                    'shoe_image': shoe_image,
-                    'category_name': category_name,
-                    'category_image': category_image
-                })
+        #         shoe_list.append({
+        #             'shoe_id': shoe_id,
+        #             'shoe_name': shoe_name,
+        #             'price': price,
+        #             'shoe_image': shoe_image,
+        #             'category_name': category_name,
+        #             'category_image': category_image
+        #         })
 
-            return jsonify({
-                "predicted_class": predicted_class,
-                "confidence": confidence,
-                "shoe_list": shoe_list,
-            })
-        else:
-            # Handle the error
-            print("Request failed with status code:", response.status_code)
-            # Truy vấn cơ sở dữ liệu để lấy thông tin giày từ DB
-            query = (
-                "SELECT s.id, s.name AS shoe_name, s.price, i.image AS shoe_image, c.name AS category_name, c.image AS category_image FROM shoes s JOIN categories c ON s.id_category = c.id JOIN images i ON s.id = i.id_shoes WHERE c.name = '{predicted_class}';")
-            cursor.execute(query.format(predicted_class=predicted_class))
-            shoe_info = cursor.fetchall()
+        #     return jsonify({
+        #         "predicted_class": predicted_class,
+        #         "confidence": confidence,
+        #         "shoe_list": shoe_list,
+        #     })
+        # else:
+        #     # Handle the error
+        #     print("Request failed with status code:", response.status_code)
+        #     # Truy vấn cơ sở dữ liệu để lấy thông tin giày từ DB
+        #     query = (
+        #         "SELECT s.id, s.name AS shoe_name, s.price, i.image AS shoe_image, c.name AS category_name, c.image AS category_image FROM shoes s JOIN categories c ON s.id_category = c.id JOIN images i ON s.id = i.id_shoes WHERE c.name = '{predicted_class}';")
+        #     cursor.execute(query.format(predicted_class=predicted_class))
+        #     shoe_info = cursor.fetchall()
 
-            shoe_list = []
-            for row in shoe_info:
-                shoe_id, shoe_name, price, shoe_image, category_name, category_image = row
-                shoe_list.append({
-                    'shoe_id': shoe_id,
-                    'shoe_name': shoe_name,
-                    'price': price,
-                    'shoe_image': shoe_image,
-                    'category_name': category_name,
-                    'category_image': category_image
-                })
+        #     shoe_list = []
+        #     for row in shoe_info:
+        #         shoe_id, shoe_name, price, shoe_image, category_name, category_image = row
+        #         shoe_list.append({
+        #             'shoe_id': shoe_id,
+        #             'shoe_name': shoe_name,
+        #             'price': price,
+        #             'shoe_image': shoe_image,
+        #             'category_name': category_name,
+        #             'category_image': category_image
+        #         })
 
             # Return the shoe_list in JSON format
             return jsonify({
